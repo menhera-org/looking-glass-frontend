@@ -219,7 +219,7 @@ const render_stats = (router, stats) => {
 	const data_rtt = {};
 	const data_loss = {};
 	for (const peer in stats) {
-		const peer_stats = stats[peer]?.slice(-10);
+		const peer_stats = stats[peer] ?? [];
 		if (!peer_stats) continue;
 		
 		const series_rtt = [];
