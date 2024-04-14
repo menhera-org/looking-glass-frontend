@@ -243,13 +243,17 @@ const render_stats = (router, stats) => {
 		data_loss[peer] = series_loss;
 	}
 
-	graph_rtt.contentWindow?.postMessage({
-		type: 'update-chart',
-		value: data_rtt,
-	}, '*');
+	graph_rtt.onload = () => {
+		graph_rtt.contentWindow?.postMessage({
+			type: 'update-chart',
+			value: data_rtt,
+		}, '*');
+	};
 
-	graph_loss.contentWindow?.postMessage({
-		type: 'update-chart',
-		value: data_loss,
-	}, '*');
+	graph_loss.onload = () => {
+		graph_loss.contentWindow?.postMessage({
+			type: 'update-chart',
+			value: data_loss,
+		}, '*');
+	};
 };
