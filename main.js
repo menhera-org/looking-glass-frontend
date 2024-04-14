@@ -180,7 +180,7 @@ Promise.allSettled(ROUTERS.map(async (router) => {
 	const res = await fetch(`/routers/${router}`);
 	if (!res.ok) throw new Error('Request failed');
 	return res.json();
-})).then(((results) => {
+})).then((results) => {
 	for (let i = 0; i < ROUTERS.length; i++) {
 		const settlement = results[i];
 		if (settlement.status != 'fulfilled') {
