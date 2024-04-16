@@ -177,9 +177,13 @@ const ROUTERS = ['rv128', 'rt130', 'rt131', 'rc140'];
 const backbone_stats = document.querySelector('#backbone-stats');
 
 Promise.allSettled(ROUTERS.map(async (router) => {
-	const res = await fetch(`/routers/${router}`);
-	if (!res.ok) throw new Error('Request failed');
-	return res.json();
+	try {
+		const res = await fetch(`/routers/${router}`);
+		if (!res.ok) throw new Error('Request failed');
+		return res.json();
+	} catch (e) {
+		return null;
+	}
 })).then((results) => {
 	for (let i = 0; i < ROUTERS.length; i++) {
 		const settlement = results[i];
@@ -196,6 +200,12 @@ const render_stats = (router, stats) => {
 	h3.textContent = router;
 	backbone_stats.append(h3);
 
+	if (stats == null) {
+		const p = document.createElement('p');
+		p.textContent = 'Failed to fetch stats';
+		backbone_stats.append(p);
+		return;
+	}
 	const figure_rtt = document.createElement('figure');
 	const caption_rtt = document.createElement('figcaption');
 	caption_rtt.textContent = 'RTT (ms)';
