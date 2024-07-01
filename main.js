@@ -300,7 +300,7 @@ for (const router of ROUTERS) {
 			const td_rtt_stddev = document.createElement('td');
 			td_rtt_stddev.textContent = rtt_stats.stddev.toFixed(2);
 			const td_loss = document.createElement('td');
-			td_loss.textContent = (100 - packet_count / 60 * 100 * minute_count).toFixed(2);
+			td_loss.textContent = (100 - packet_count / (60 * minute_count) * 100).toFixed(2);
 			tr.append(td_peer, td_rtt_avg, td_rtt_min, td_rtt_max, td_rtt_stddev, td_loss);
 			tbody.append(tr);
 		}
