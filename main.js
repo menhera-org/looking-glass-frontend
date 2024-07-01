@@ -252,7 +252,7 @@ for (const router of ROUTERS) {
 		const data_rtt = {};
 		const data_loss = {};
 		for (const peer in stats) {
-			const peer_stats = rtt_stats[peer] ?? [];
+			const peer_stats = stats[peer] ?? [];
 			if (!peer_stats) continue;
 
 			let packet_count = 0;
