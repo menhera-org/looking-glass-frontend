@@ -252,7 +252,7 @@ for (const router of ROUTERS) {
 		const data_rtt = {};
 		const data_loss = {};
 		for (const peer in stats) {
-			const peer_stats = stats[peer] ?? [];
+			const peer_stats = rtt_stats[peer] ?? [];
 			if (!peer_stats) continue;
 
 			let packet_count = 0;
@@ -281,18 +281,18 @@ for (const router of ROUTERS) {
 			data_rtt[peer] = series_rtt;
 			data_loss[peer] = series_loss;
 
-			const stats = calc_stats(rtt_by_minute);
+			const rtt_stats = calc_stats(rtt_by_minute);
 			const tr = document.createElement('tr');
 			const td_peer = document.createElement('td');
 			td_peer.textContent = peer;
 			const td_rtt_avg = document.createElement('td');
-			td_rtt_avg.textContent = stats.avg.toFixed(2);
+			td_rtt_avg.textContent = rtt_stats.avg.toFixed(2);
 			const td_rtt_min = document.createElement('td');
-			td_rtt_min.textContent = stats.min.toFixed(2);
+			td_rtt_min.textContent = rtt_stats.min.toFixed(2);
 			const td_rtt_max = document.createElement('td');
-			td_rtt_max.textContent = stats.max.toFixed(2);
+			td_rtt_max.textContent = rtt_stats.max.toFixed(2);
 			const td_rtt_stddev = document.createElement('td');
-			td_rtt_stddev.textContent = stats.stddev.toFixed(2);
+			td_rtt_stddev.textContent = rtt_stats.stddev.toFixed(2);
 			const td_loss = document.createElement('td');
 			td_loss.textContent = (100 - packet_count / 60 * 100).toFixed(2);
 			tr.append(td_peer, td_rtt_avg, td_rtt_min, td_rtt_max, td_rtt_stddev, td_loss);
