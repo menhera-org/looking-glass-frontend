@@ -176,94 +176,87 @@ select_tab(tabs[0].dataset.paneName);
 const ROUTERS = ['rv128', 'rt130', 'rt131', 'rc140'];
 const backbone_stats = document.querySelector('#backbone-stats');
 
-Promise.allSettled(ROUTERS.map(async (router) => {
-	try {
-		const res = await fetch(`/routers/${router}`);
-		if (!res.ok) throw new Error('Request failed');
-		return res.json();
-	} catch (e) {
-		return null;
-	}
-})).then((results) => {
-	for (let i = 0; i < ROUTERS.length; i++) {
-		const settlement = results[i];
-		if (settlement.status != 'fulfilled') {
-			console.error(settlement.reason);
-			continue;
-		}
-		render_stats(ROUTERS[i], settlement.value);
-	}
-});
-
-const render_stats = (router, stats) => {
+for (const router of ROUTERS) {
+	const router_summary = document.createElement('div');
+	router_summary.classList.add('router-summary');
 	const h3 = document.createElement('h3');
 	h3.textContent = router;
-	backbone_stats.append(h3);
-
-	if (stats == null) {
-		const p = document.createElement('p');
-		p.textContent = 'Failed to fetch stats';
-		backbone_stats.append(p);
-		return;
-	}
-	const figure_rtt = document.createElement('figure');
-	const caption_rtt = document.createElement('figcaption');
-	caption_rtt.textContent = 'RTT (ms)';
-	figure_rtt.append(caption_rtt);
-	backbone_stats.append(figure_rtt);
-
-	const figure_loss = document.createElement('figure');
-	const caption_loss = document.createElement('figcaption');
-	caption_loss.textContent = 'Packet loss (%)';
-	figure_loss.append(caption_loss);
-	backbone_stats.append(figure_loss);
-
-	const graph_rtt = document.createElement('iframe');
-	graph_rtt.src = 'https://menhera-org.github.io/time-chart/';
-	figure_rtt.append(graph_rtt);
-
-	const graph_loss = document.createElement('iframe');
-	graph_loss.src = 'https://menhera-org.github.io/time-chart/';
-	figure_loss.append(graph_loss);
-
-	const data_rtt = {};
-	const data_loss = {};
-	for (const peer in stats) {
-		const peer_stats = stats[peer] ?? [];
-		if (!peer_stats) continue;
-		
-		const series_rtt = [];
-		const series_loss = [];
-		for (const minute_stat of peer_stats) {
-			const entry_rtt = {
-				time: minute_stat.timestamp,
-				value: Number(minute_stat.average_delay ?? 0),
-			};
-
-			const entry_loss = {
-				time: minute_stat.timestamp,
-				value: 100 - minute_stat.count / 60 * 100,
-			};
-
-			series_rtt.push(entry_rtt);
-			series_loss.push(entry_loss);
+	router_summary.append(h3);
+	backbone_stats.append(router_summary);
+	(async (router) => {
+		try {
+			const res = await fetch(`/routers/${router}`);
+			if (!res.ok) throw new Error('Request failed');
+			return res.json();
+		} catch (e) {
+			return null;
 		}
-
-		data_rtt[peer] = series_rtt;
-		data_loss[peer] = series_loss;
-	}
-
-	graph_rtt.onload = () => {
-		graph_rtt.contentWindow?.postMessage({
-			type: 'update-chart',
-			value: data_rtt,
-		}, '*');
-	};
-
-	graph_loss.onload = () => {
-		graph_loss.contentWindow?.postMessage({
-			type: 'update-chart',
-			value: data_loss,
-		}, '*');
-	};
-};
+	})().then((stats) => {
+		if (stats == null) {
+			const p = document.createElement('p');
+			p.textContent = 'Failed to fetch stats';
+			router_summary.append(p);
+			return;
+		}
+		const figure_rtt = document.createElement('figure');
+		const caption_rtt = document.createElement('figcaption');
+		caption_rtt.textContent = 'RTT (ms)';
+		figure_rtt.append(caption_rtt);
+		router_summary.append(figure_rtt);
+	
+		const figure_loss = document.createElement('figure');
+		const caption_loss = document.createElement('figcaption');
+		caption_loss.textContent = 'Packet loss (%)';
+		figure_loss.append(caption_loss);
+		router_summary.append(figure_loss);
+	
+		const graph_rtt = document.createElement('iframe');
+		graph_rtt.src = 'https://menhera-org.github.io/time-chart/';
+		figure_rtt.append(graph_rtt);
+	
+		const graph_loss = document.createElement('iframe');
+		graph_loss.src = 'https://menhera-org.github.io/time-chart/';
+		figure_loss.append(graph_loss);
+	
+		const data_rtt = {};
+		const data_loss = {};
+		for (const peer in stats) {
+			const peer_stats = stats[peer] ?? [];
+			if (!peer_stats) continue;
+			
+			const series_rtt = [];
+			const series_loss = [];
+			for (const minute_stat of peer_stats) {
+				const entry_rtt = {
+					time: minute_stat.timestamp,
+					value: Number(minute_stat.average_delay ?? 0),
+				};
+	
+				const entry_loss = {
+					time: minute_stat.timestamp,
+					value: 100 - minute_stat.count / 60 * 100,
+				};
+	
+				series_rtt.push(entry_rtt);
+				series_loss.push(entry_loss);
+			}
+	
+			data_rtt[peer] = series_rtt;
+			data_loss[peer] = series_loss;
+		}
+	
+		graph_rtt.onload = () => {
+			graph_rtt.contentWindow?.postMessage({
+				type: 'update-chart',
+				value: data_rtt,
+			}, '*');
+		};
+	
+		graph_loss.onload = () => {
+			graph_loss.contentWindow?.postMessage({
+				type: 'update-chart',
+				value: data_loss,
+			}, '*');
+		};
+	});
+}
