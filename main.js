@@ -165,6 +165,16 @@ function select_tab(pane_name) {
 	});
 }
 
+// returns { avg, min, max, stddev }
+function calc_stats(values) {
+	const sum = values.reduce((acc, value) => acc + value, 0);
+	const avg = sum / values.length;
+	const min = Math.min(...values);
+	const max = Math.max(...values);
+	const stddev = Math.sqrt(values.reduce((acc, value) => acc + (value - avg) ** 2, 0) / values.length);
+	return { avg, min, max, stddev };
+}
+
 for (const tab of tabs) {
 	tab.addEventListener('click', () => {
 		select_tab(tab.dataset.paneName);
@@ -198,6 +208,27 @@ for (const router of ROUTERS) {
 			router_summary.append(p);
 			return;
 		}
+		const table = document.createElement('table');
+		const thead = document.createElement('thead');
+		const tbody = document.createElement('tbody');
+		const tr = document.createElement('tr');
+		const th_peer = document.createElement('th');
+		th_peer.textContent = 'Peer';
+		const th_rtt_avg = document.createElement('th');
+		th_rtt_avg.textContent = 'RTT (ms): avg';
+		const th_rtt_min = document.createElement('th');
+		th_rtt_min.textContent = 'RTT (ms): min';
+		const th_rtt_max = document.createElement('th');
+		th_rtt_max.textContent = 'RTT (ms): max';
+		const th_rtt_stddev = document.createElement('th');
+		th_rtt_stddev.textContent = 'RTT (ms): stddev';
+		const th_loss = document.createElement('th');
+		th_loss.textContent = 'Packet loss (%)';
+		tr.append(th_peer, th_rtt_avg, th_rtt_min, th_rtt_max, th_rtt_stddev, th_loss);
+		thead.append(tr);
+		table.append(thead, tbody);
+		router_summary.append(table);
+
 		const figure_rtt = document.createElement('figure');
 		const caption_rtt = document.createElement('figcaption');
 		caption_rtt.textContent = 'RTT (ms)';
@@ -223,6 +254,9 @@ for (const router of ROUTERS) {
 		for (const peer in stats) {
 			const peer_stats = stats[peer] ?? [];
 			if (!peer_stats) continue;
+
+			let packet_count = 0;
+			const rtt_by_minute = [];
 			
 			const series_rtt = [];
 			const series_loss = [];
@@ -236,6 +270,9 @@ for (const router of ROUTERS) {
 					time: minute_stat.timestamp,
 					value: 100 - minute_stat.count / 60 * 100,
 				};
+
+				rtt_by_minute.push(minute_stat.average_delay);
+				packet_count += minute_stat.count;
 	
 				series_rtt.push(entry_rtt);
 				series_loss.push(entry_loss);
@@ -243,6 +280,23 @@ for (const router of ROUTERS) {
 	
 			data_rtt[peer] = series_rtt;
 			data_loss[peer] = series_loss;
+
+			const stats = calc_stats(rtt_by_minute);
+			const tr = document.createElement('tr');
+			const td_peer = document.createElement('td');
+			td_peer.textContent = peer;
+			const td_rtt_avg = document.createElement('td');
+			td_rtt_avg.textContent = stats.avg.toFixed(2);
+			const td_rtt_min = document.createElement('td');
+			td_rtt_min.textContent = stats.min.toFixed(2);
+			const td_rtt_max = document.createElement('td');
+			td_rtt_max.textContent = stats.max.toFixed(2);
+			const td_rtt_stddev = document.createElement('td');
+			td_rtt_stddev.textContent = stats.stddev.toFixed(2);
+			const td_loss = document.createElement('td');
+			td_loss.textContent = (100 - packet_count / 60 * 100).toFixed(2);
+			tr.append(td_peer, td_rtt_avg, td_rtt_min, td_rtt_max, td_rtt_stddev, td_loss);
+			tbody.append(tr);
 		}
 	
 		graph_rtt.onload = () => {
