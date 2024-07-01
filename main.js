@@ -191,7 +191,7 @@ for (const router of ROUTERS) {
 		} catch (e) {
 			return null;
 		}
-	})().then((stats) => {
+	})(router).then((stats) => {
 		if (stats == null) {
 			const p = document.createElement('p');
 			p.textContent = 'Failed to fetch stats';
