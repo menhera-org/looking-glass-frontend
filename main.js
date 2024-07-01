@@ -256,6 +256,7 @@ for (const router of ROUTERS) {
 			if (!peer_stats) continue;
 
 			let packet_count = 0;
+			let minute_count = 0;
 			const rtt_by_minute = [];
 			
 			const series_rtt = [];
@@ -271,8 +272,12 @@ for (const router of ROUTERS) {
 					value: 100 - minute_stat.count / 60 * 100,
 				};
 
-				rtt_by_minute.push(minute_stat.average_delay);
-				packet_count += minute_stat.count;
+				if (minute_stat.count != 0) {
+					rtt_by_minute.push(minute_stat.average_delay);
+					packet_count += minute_stat.count;
+				}
+
+				minute_count += 1;
 	
 				series_rtt.push(entry_rtt);
 				series_loss.push(entry_loss);
@@ -281,6 +286,7 @@ for (const router of ROUTERS) {
 			data_rtt[peer] = series_rtt;
 			data_loss[peer] = series_loss;
 
+			if (0 == minute_count) continue;
 			const rtt_stats = calc_stats(rtt_by_minute);
 			const tr = document.createElement('tr');
 			const td_peer = document.createElement('td');
@@ -294,7 +300,7 @@ for (const router of ROUTERS) {
 			const td_rtt_stddev = document.createElement('td');
 			td_rtt_stddev.textContent = rtt_stats.stddev.toFixed(2);
 			const td_loss = document.createElement('td');
-			td_loss.textContent = (100 - packet_count / 60 * 100).toFixed(2);
+			td_loss.textContent = (100 - packet_count / 60 * 100 * minute_count).toFixed(2);
 			tr.append(td_peer, td_rtt_avg, td_rtt_min, td_rtt_max, td_rtt_stddev, td_loss);
 			tbody.append(tr);
 		}
