@@ -13,8 +13,8 @@ document.querySelector('#anycast-origin').textContent = ANYCAST_ORIGIN;
 let api_base = location.href;
 
 const ROUTER_APIS = new Map;
-ROUTER_APIS.set('rc140', 'https://api-c.looking-glass.nc.menhera.org/');
-ROUTER_APIS.set('rt132', 'https://api-t.looking-glass.nc.menhera.org/');
+ROUTER_APIS.set('er0111', 'https://api-m-ibr1-az1.looking-glass.nc.menhera.org/');
+ROUTER_APIS.set('er0112', 'https://api-m-ibr1-az2.looking-glass.nc.menhera.org/');
 
 function get_api_base(router_id) {
 	const base = ROUTER_APIS.get(router_id);
@@ -183,7 +183,7 @@ for (const tab of tabs) {
 
 select_tab(tabs[0].dataset.paneName);
 
-const ROUTERS = ['rv128', 'rt130', 'rt131', 'rc140'];
+const ROUTERS = ['cr0101', 'cr0102', 'er0111', 'er0112'];
 const backbone_stats = document.querySelector('#backbone-stats');
 
 for (const router of ROUTERS) {
