@@ -73,6 +73,12 @@ async function traceroute(host) {
 	return make_api_request(url);
 }
 
+async function mtr(host) {
+	const url = new URL('/api/v1/mtr', api_base);
+	url.searchParams.set('host', host);
+	return make_api_request(url);
+}
+
 const error = document.querySelector('#error');
 const result = document.querySelector('#results');
 
@@ -93,6 +99,7 @@ function unlock_ui() {
 
 const ping_host = document.querySelector('#ping-host');
 const traceroute_host = document.querySelector('#traceroute-host');
+const mtr_host = document.querySelector('#mtr-host');
 const bgp_address = document.querySelector('#bgp-address');
 
 document.querySelector('#ping-button').addEventListener('click', () => {
@@ -115,6 +122,23 @@ document.querySelector('#ping-button').addEventListener('click', () => {
 document.querySelector('#traceroute-button').addEventListener('click', () => {
 	lock_ui();
 	traceroute(traceroute_host.value.trim()).then((data) => {
+		unlock_ui();
+		if (data.error) {
+			error.textContent = data.error;
+		} else {
+			error.textContent = '';
+		}
+		result.textContent = data.result;
+	}).catch((e) => {
+		unlock_ui();
+		error.textContent = String(e);
+		result.textContent = '';
+	});
+});
+
+document.querySelector('#mtr-button').addEventListener('click', () => {
+	lock_ui();
+	mtr(mtr_host.value.trim()).then((data) => {
 		unlock_ui();
 		if (data.error) {
 			error.textContent = data.error;

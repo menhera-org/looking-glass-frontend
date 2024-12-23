@@ -27,7 +27,7 @@
 body {
 	margin: auto;
 	padding: 1em;
-	max-width: 40em;
+	max-width: 50em;
 }
 
 pre {
@@ -156,6 +156,7 @@ progress {
 <div id='tabs'>
 <div data-pane-name='ping'>Ping</div>
 <div data-pane-name='traceroute'>Traceroute</div>
+<div data-pane-name='mtr'>MTR (Ping+Traceroute)</div>
 <div data-pane-name='bgp'>BGP</div>
 </div>
 <div id='panes'>
@@ -164,6 +165,9 @@ progress {
 </div>
 <div data-pane-name='traceroute'>
 <p><label>Host: <input id='traceroute-host' type='text'></label> <button id='traceroute-button'>Start</button></p>
+</div>
+<div data-pane-name='mtr'>
+<p><label>Host: <input id='mtr-host' type='text'></label> <button id='mtr-button'>Start</button></p>
 </div>
 <div data-pane-name='bgp'>
 <p><label>IPv4/IPv6 address: <input id='bgp-address' type='text'></label> <button id='bgp-button'>Start</button></p>
