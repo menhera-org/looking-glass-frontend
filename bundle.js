@@ -2551,6 +2551,7 @@ input, button, textarea, select {
   display: flex;
   flex-direction: column;
   padding-block: 1rem;
+  padding-inline: .5rem;
 }
 
 #app-drawer {
@@ -2797,7 +2798,7 @@ input, button, textarea, select {
 #console-input-exec-button > .material-symbols-outlined {
   font-size: 150%;
 }
-`, "",{"version":3,"sources":["webpack://./src/index.css"],"names":[],"mappings":"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","sourcesContent":["\n:root, * {\n  --theme-primary-text-color: #333;\n  --theme-secondary-text-color: #666;\n  --theme-disabled-text-color: #999;\n  --theme-main-background-color: #f5f5f5;\n  --theme-primary-background-color: #ffffff;\n  --theme-accent-color: #3B9EA3;\n  --theme-secondary-accent-color: #d1e7e8;\n  --theme-accent-text-color: #ffffff;\n  --theme-overlay-color: #00000080;\n  --theme-selected-color: #00000030;\n\n  --drawer-width: 20rem;\n}\n\n.material-symbols-outlined {\n  font-variation-settings:\n  'FILL' 1;\n}\n\n:root, body, #root, #app {\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n  background-color: var(--theme-main-background-color);\n  color: var(--theme-primary-text-color);\n}\n\ninput, button, textarea, select {\n  font-family: inherit;\n  font-size: inherit;\n  color: inherit;\n  background-color: transparent;\n  border: none;\n  outline: none;\n  appearance: none;\n  border-radius: unset;\n}\n\n#app {\n  display: grid;\n  grid-template-rows: [app-start top-bar-start] 3rem [top-bar-end main-start] 1fr [main-end app-end];\n  transition: ease-in-out 0.3s grid-template-columns;\n}\n\n#app.app-drawer-closed {\n  grid-template-columns: [app-start main-start drawer-start] 0 [drawer-end] 1fr [main-end app-end];\n}\n\n#app.app-drawer-open {\n  grid-template-columns: [app-start main-start drawer-start] var(--drawer-width) [drawer-end] 1fr [main-end app-end];\n}\n\n#app-top-bar {\n  grid-row: top-bar-start / top-bar-end;\n  grid-column: app-start / app-end;\n  background-color: var(--theme-accent-color);\n  color: var(--theme-accent-text-color);\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n}\n\n#app-top-bar-main {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  min-inline-size: 0;\n  overflow: hidden;\n}\n\n#app-top-bar-side {\n  inline-size: var(--drawer-width);\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  transition: inline-size 0.3s ease-in-out;\n}\n\n#app.app-drawer-closed #app-top-bar-side {\n  inline-size: 4rem;\n}\n\n#app-top-bar-branding {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: row;\n  box-sizing: border-box;\n  min-inline-size: 0;\n  flex: 1;\n}\n\n#app.app-drawer-closed #app-top-bar-branding-logo {\n  opacity: 0;\n}\n\n#app-top-bar-navigation {\n  display: flex;\n  flex: 1;\n  flex-direction: row;\n  block-size: 2.5rem;\n  margin-block-start: .5rem;\n  align-items: stretch;\n}\n\n.app-top-bar-navigation-start-edge, .app-top-bar-navigation-end-edge {\n  fill: var(--theme-secondary-accent-color);\n  flex-shrink: 0;\n}\n\n:dir(rtl) :is(.app-top-bar-navigation-start-edge, .app-top-bar-navigation-end-edge) {\n  transform: scaleX(-1);\n}\n\n.app-top-bar-navigation-content {\n  flex: 1;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  background-color: var(--theme-secondary-accent-color);\n  color: var(--theme-accent-color);\n  column-gap: .5rem;\n}\n\n#app-overlay {\n  grid-row: app-start / app-end;\n  grid-column: drawer-end / main-end;\n  background-color: var(--theme-overlay-color);\n  opacity: 1;\n  transition: ease-in-out 0.3s opacity, ease-in-out 0.3s visibility;\n}\n\n#app.app-drawer-closed #app-overlay {\n  visibility: hidden;\n  opacity: 0;\n  transition: ease-in-out 0.3s opacity, ease-in-out 0s 0.3s visibility;\n}\n\n#app-main {\n  grid-row: main-start / main-end;\n  grid-column: main-start / main-end;\n  overflow: auto;\n  display: flex;\n  flex-direction: column;\n  padding-block: 1rem;\n}\n\n#app-drawer {\n  grid-row: main-start / main-end;\n  grid-column: drawer-start / drawer-end;\n  background-color: var(--theme-accent-color);\n  color: var(--theme-accent-text-color);\n  overflow: hidden;\n  opacity: 1;\n  display: flex;\n  flex-direction: row;\n}\n\n#app.app-drawer-closed #app-drawer {\n  visibility: hidden;\n  transition: ease-in-out 0s 0.3s visibility;\n}\n\n#app #app-drawer-navigation > * {\n  opacity: 1;\n  transition: ease-in-out 0.1s 0.2s opacity;\n}\n\n#app.app-drawer-closed #app-drawer-navigation > * {\n  opacity: 0;\n  transition: none;\n}\n\n#app-drawer > #app-drawer-shortcuts {\n  inline-size: 4rem;\n  min-inline-size: 0;\n  overflow-inline: hidden;\n  overflow-block: auto;\n  display: flex;\n  flex-direction: column;\n  row-gap: 1rem;\n  align-items: center;\n  padding-block: 1rem;\n}\n\n#app-drawer > #app-drawer-navigation {\n  background-color: var(--theme-secondary-accent-color);\n  color: var(--theme-accent-color);\n  flex: 1;\n  min-inline-size: 0;\n  overflow-inline: hidden;\n  overflow-block: auto;\n}\n\n#app-drawer-heading {\n  margin: 0;\n  padding-block-start: 1rem;\n  padding-block-end: .5rem;\n  padding-inline: 2rem;\n  font-weight: bold;\n  font-size: 150%;\n}\n\n#app-drawer > #app-drawer-navigation:dir(ltr) {\n  border-top-left-radius: 1rem;\n}\n\n#app-drawer > #app-drawer-navigation:dir(rtl) {\n  border-top-right-radius: 1rem;\n}\n\n@media (min-width: 40rem) {\n  #app-overlay {\n    display: none !important;\n  }\n\n  #app.app-drawer-closed {\n    grid-template-columns: [app-start drawer-start] 0 [drawer-end main-start] 1fr [main-end app-end];\n  }\n\n  #app.app-drawer-open {\n    grid-template-columns: [app-start drawer-start] var(--drawer-width) [drawer-end main-start] 1fr [main-end app-end];\n  }\n}\n\n.app-button {\n  appearance: none;\n  margin: 0;\n  padding: 0;\n  font-size: 1.5rem;\n  background-color: transparent;\n  color: inherit;\n  border: none;\n  inline-size: 3rem;\n  block-size: 3rem;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  user-select: none;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.app-button:hover {\n  opacity: .75;\n}\n\n.app-drawer-toggle-button {\n  inline-size: 4rem;\n}\n\n.app-shortcut-item {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  color: var(--theme-accent-text-color);\n  text-decoration: none;\n  padding: .5rem;\n  border-radius: .5rem;\n  cursor: default;\n}\n\n.app-shortcut-item.selected {\n  background-color: var(--theme-selected-color);\n}\n\n.app-shortcut-item > .icon {\n  font-size: 200%;\n}\n\n.app-shortcut-item > .text {\n  font-size: 80%;\n}\n\n#console-history {\n  display: flex;\n  flex: 1;\n  min-inline-size: 0;\n  flex-direction: column;\n  justify-content: end;\n  padding-block: 1rem;\n  padding-inline: 1rem;\n  max-inline-size: 64rem;\n  margin-inline: auto;\n  inline-size: 100%;\n  font-family: 'Source Code Pro', monospace;\n  box-sizing: border-box;\n  justify-content: end;\n}\n\n.infobox {\n  min-inline-size: 0;\n  padding-block: 1rem;\n  padding-inline: 1rem;\n  max-inline-size: 64rem;\n  margin-inline: auto;\n  inline-size: 100%;\n  box-sizing: border-box;\n  border: solid 1px var(--theme-secondary-text-color);\n}\n\n#console-history > .console-history-command {\n  color: var(--theme-accent-color);\n}\n\n#console-history > * {\n  white-space: pre-wrap;\n  overflow-wrap: break-word;\n}\n\n#console-history .error {\n  color: #ff0000;\n}\n\n#console-input-wrapper {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  background-color: var(--theme-secondary-accent-color);\n  color: var(--theme-accent-color);\n  padding-block: .5rem;\n  max-inline-size: 64rem;\n  margin-inline: auto;\n  border-radius: 1rem;\n  box-sizing: border-box;\n  padding-inline: 1rem;\n  inline-size: 100%;\n  font-family: 'Source Code Pro', monospace;\n  column-gap: .5rem;\n  flex-wrap: wrap;\n  position: sticky;\n  inset-block-end: 0;\n  box-shadow: 0 0 0 1rem var(--theme-main-background-color);\n}\n\n#console-input-wrapper select {\n  display: block;\n  text-align: center;\n  min-inline-size: 0;\n}\n\n#console-input-router-select {\n  display: block;\n  text-align: end;\n  min-inline-size: 0;\n}\n\n#console-input-args {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  flex: 1;\n  min-inline-size: 50%;\n  padding-inline: .5rem;\n  padding-block: .5rem;\n  background-color: var(--theme-primary-background-color);\n  color: var(--theme-primary-text-color);\n  border-radius: .5rem;\n  box-sizing: border-box;\n}\n\n[data-disabled=\"true\"] #console-input-args {\n  opacity: 0.5;\n}\n\n#console-input-args > input {\n  display: block;\n  text-align: start;\n  min-inline-size: 0;\n  flex: 1;\n  box-sizing: border-box;\n}\n\n#console-input-exec-button {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.3s 0.3s ease-in-out;\n  padding: 0;\n}\n\n.valid #console-input-exec-button {\n  background-color: var(--theme-accent-color);\n  color: var(--theme-accent-text-color);\n}\n\n#console-input-exec-button > .material-symbols-outlined {\n  font-size: 150%;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/index.css"],"names":[],"mappings":"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","sourcesContent":["\n:root, * {\n  --theme-primary-text-color: #333;\n  --theme-secondary-text-color: #666;\n  --theme-disabled-text-color: #999;\n  --theme-main-background-color: #f5f5f5;\n  --theme-primary-background-color: #ffffff;\n  --theme-accent-color: #3B9EA3;\n  --theme-secondary-accent-color: #d1e7e8;\n  --theme-accent-text-color: #ffffff;\n  --theme-overlay-color: #00000080;\n  --theme-selected-color: #00000030;\n\n  --drawer-width: 20rem;\n}\n\n.material-symbols-outlined {\n  font-variation-settings:\n  'FILL' 1;\n}\n\n:root, body, #root, #app {\n  width: 100%;\n  height: 100%;\n  overflow: hidden;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n  background-color: var(--theme-main-background-color);\n  color: var(--theme-primary-text-color);\n}\n\ninput, button, textarea, select {\n  font-family: inherit;\n  font-size: inherit;\n  color: inherit;\n  background-color: transparent;\n  border: none;\n  outline: none;\n  appearance: none;\n  border-radius: unset;\n}\n\n#app {\n  display: grid;\n  grid-template-rows: [app-start top-bar-start] 3rem [top-bar-end main-start] 1fr [main-end app-end];\n  transition: ease-in-out 0.3s grid-template-columns;\n}\n\n#app.app-drawer-closed {\n  grid-template-columns: [app-start main-start drawer-start] 0 [drawer-end] 1fr [main-end app-end];\n}\n\n#app.app-drawer-open {\n  grid-template-columns: [app-start main-start drawer-start] var(--drawer-width) [drawer-end] 1fr [main-end app-end];\n}\n\n#app-top-bar {\n  grid-row: top-bar-start / top-bar-end;\n  grid-column: app-start / app-end;\n  background-color: var(--theme-accent-color);\n  color: var(--theme-accent-text-color);\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n}\n\n#app-top-bar-main {\n  flex: 1;\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  min-inline-size: 0;\n  overflow: hidden;\n}\n\n#app-top-bar-side {\n  inline-size: var(--drawer-width);\n  display: flex;\n  align-items: center;\n  flex-direction: row;\n  transition: inline-size 0.3s ease-in-out;\n}\n\n#app.app-drawer-closed #app-top-bar-side {\n  inline-size: 4rem;\n}\n\n#app-top-bar-branding {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: row;\n  box-sizing: border-box;\n  min-inline-size: 0;\n  flex: 1;\n}\n\n#app.app-drawer-closed #app-top-bar-branding-logo {\n  opacity: 0;\n}\n\n#app-top-bar-navigation {\n  display: flex;\n  flex: 1;\n  flex-direction: row;\n  block-size: 2.5rem;\n  margin-block-start: .5rem;\n  align-items: stretch;\n}\n\n.app-top-bar-navigation-start-edge, .app-top-bar-navigation-end-edge {\n  fill: var(--theme-secondary-accent-color);\n  flex-shrink: 0;\n}\n\n:dir(rtl) :is(.app-top-bar-navigation-start-edge, .app-top-bar-navigation-end-edge) {\n  transform: scaleX(-1);\n}\n\n.app-top-bar-navigation-content {\n  flex: 1;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  background-color: var(--theme-secondary-accent-color);\n  color: var(--theme-accent-color);\n  column-gap: .5rem;\n}\n\n#app-overlay {\n  grid-row: app-start / app-end;\n  grid-column: drawer-end / main-end;\n  background-color: var(--theme-overlay-color);\n  opacity: 1;\n  transition: ease-in-out 0.3s opacity, ease-in-out 0.3s visibility;\n}\n\n#app.app-drawer-closed #app-overlay {\n  visibility: hidden;\n  opacity: 0;\n  transition: ease-in-out 0.3s opacity, ease-in-out 0s 0.3s visibility;\n}\n\n#app-main {\n  grid-row: main-start / main-end;\n  grid-column: main-start / main-end;\n  overflow: auto;\n  display: flex;\n  flex-direction: column;\n  padding-block: 1rem;\n  padding-inline: .5rem;\n}\n\n#app-drawer {\n  grid-row: main-start / main-end;\n  grid-column: drawer-start / drawer-end;\n  background-color: var(--theme-accent-color);\n  color: var(--theme-accent-text-color);\n  overflow: hidden;\n  opacity: 1;\n  display: flex;\n  flex-direction: row;\n}\n\n#app.app-drawer-closed #app-drawer {\n  visibility: hidden;\n  transition: ease-in-out 0s 0.3s visibility;\n}\n\n#app #app-drawer-navigation > * {\n  opacity: 1;\n  transition: ease-in-out 0.1s 0.2s opacity;\n}\n\n#app.app-drawer-closed #app-drawer-navigation > * {\n  opacity: 0;\n  transition: none;\n}\n\n#app-drawer > #app-drawer-shortcuts {\n  inline-size: 4rem;\n  min-inline-size: 0;\n  overflow-inline: hidden;\n  overflow-block: auto;\n  display: flex;\n  flex-direction: column;\n  row-gap: 1rem;\n  align-items: center;\n  padding-block: 1rem;\n}\n\n#app-drawer > #app-drawer-navigation {\n  background-color: var(--theme-secondary-accent-color);\n  color: var(--theme-accent-color);\n  flex: 1;\n  min-inline-size: 0;\n  overflow-inline: hidden;\n  overflow-block: auto;\n}\n\n#app-drawer-heading {\n  margin: 0;\n  padding-block-start: 1rem;\n  padding-block-end: .5rem;\n  padding-inline: 2rem;\n  font-weight: bold;\n  font-size: 150%;\n}\n\n#app-drawer > #app-drawer-navigation:dir(ltr) {\n  border-top-left-radius: 1rem;\n}\n\n#app-drawer > #app-drawer-navigation:dir(rtl) {\n  border-top-right-radius: 1rem;\n}\n\n@media (min-width: 40rem) {\n  #app-overlay {\n    display: none !important;\n  }\n\n  #app.app-drawer-closed {\n    grid-template-columns: [app-start drawer-start] 0 [drawer-end main-start] 1fr [main-end app-end];\n  }\n\n  #app.app-drawer-open {\n    grid-template-columns: [app-start drawer-start] var(--drawer-width) [drawer-end main-start] 1fr [main-end app-end];\n  }\n}\n\n.app-button {\n  appearance: none;\n  margin: 0;\n  padding: 0;\n  font-size: 1.5rem;\n  background-color: transparent;\n  color: inherit;\n  border: none;\n  inline-size: 3rem;\n  block-size: 3rem;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  user-select: none;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.app-button:hover {\n  opacity: .75;\n}\n\n.app-drawer-toggle-button {\n  inline-size: 4rem;\n}\n\n.app-shortcut-item {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  color: var(--theme-accent-text-color);\n  text-decoration: none;\n  padding: .5rem;\n  border-radius: .5rem;\n  cursor: default;\n}\n\n.app-shortcut-item.selected {\n  background-color: var(--theme-selected-color);\n}\n\n.app-shortcut-item > .icon {\n  font-size: 200%;\n}\n\n.app-shortcut-item > .text {\n  font-size: 80%;\n}\n\n#console-history {\n  display: flex;\n  flex: 1;\n  min-inline-size: 0;\n  flex-direction: column;\n  justify-content: end;\n  padding-block: 1rem;\n  padding-inline: 1rem;\n  max-inline-size: 64rem;\n  margin-inline: auto;\n  inline-size: 100%;\n  font-family: 'Source Code Pro', monospace;\n  box-sizing: border-box;\n  justify-content: end;\n}\n\n.infobox {\n  min-inline-size: 0;\n  padding-block: 1rem;\n  padding-inline: 1rem;\n  max-inline-size: 64rem;\n  margin-inline: auto;\n  inline-size: 100%;\n  box-sizing: border-box;\n  border: solid 1px var(--theme-secondary-text-color);\n}\n\n#console-history > .console-history-command {\n  color: var(--theme-accent-color);\n}\n\n#console-history > * {\n  white-space: pre-wrap;\n  overflow-wrap: break-word;\n}\n\n#console-history .error {\n  color: #ff0000;\n}\n\n#console-input-wrapper {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  background-color: var(--theme-secondary-accent-color);\n  color: var(--theme-accent-color);\n  padding-block: .5rem;\n  max-inline-size: 64rem;\n  margin-inline: auto;\n  border-radius: 1rem;\n  box-sizing: border-box;\n  padding-inline: 1rem;\n  inline-size: 100%;\n  font-family: 'Source Code Pro', monospace;\n  column-gap: .5rem;\n  flex-wrap: wrap;\n  position: sticky;\n  inset-block-end: 0;\n  box-shadow: 0 0 0 1rem var(--theme-main-background-color);\n}\n\n#console-input-wrapper select {\n  display: block;\n  text-align: center;\n  min-inline-size: 0;\n}\n\n#console-input-router-select {\n  display: block;\n  text-align: end;\n  min-inline-size: 0;\n}\n\n#console-input-args {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  flex: 1;\n  min-inline-size: 50%;\n  padding-inline: .5rem;\n  padding-block: .5rem;\n  background-color: var(--theme-primary-background-color);\n  color: var(--theme-primary-text-color);\n  border-radius: .5rem;\n  box-sizing: border-box;\n}\n\n[data-disabled=\"true\"] #console-input-args {\n  opacity: 0.5;\n}\n\n#console-input-args > input {\n  display: block;\n  text-align: start;\n  min-inline-size: 0;\n  flex: 1;\n  box-sizing: border-box;\n}\n\n#console-input-exec-button {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.3s 0.3s ease-in-out;\n  padding: 0;\n}\n\n.valid #console-input-exec-button {\n  background-color: var(--theme-accent-color);\n  color: var(--theme-accent-text-color);\n}\n\n#console-input-exec-button > .material-symbols-outlined {\n  font-size: 150%;\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -41866,8 +41867,8 @@ const mtr = async (routerName, entries) => {
 };
 const ipinfo = async (routerName, entries) => {
     const results = await Promise.all(entries.map(async (entry) => {
-        const infoList = await (0, api_1.getIpInfo)(routerName, entry);
-        const result = (0, api_1.formatIpInfoList)(entry, infoList);
+        const addressInfo = await (0, api_1.getAddressInfo)(routerName, entry);
+        const result = (0, api_1.formatIpInfoList)(addressInfo);
         return result;
     }));
     return results.join('\n\n');
@@ -41885,7 +41886,7 @@ const ipinfo = async (routerName, entries) => {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.getClientIpv6 = exports.getClientIpv4 = exports.formatIpInfoList = exports.getIpInfo = exports.getAsInfo = exports.formatRoute = exports.getRouteAuto = exports.getRouteV6ByAsn = exports.getRouteV4ByAsn = exports.getOriginAsns = exports.getRoute = exports.doMtr = exports.doTraceroute = exports.doPing = exports.callApi = exports.formatDnsResponse = exports.answerListToString = exports.resolve = exports.resolveSimple = exports.resolveAuto = exports.buildReverseName6 = exports.buildReverseName4 = exports.buildReverseName = void 0;
+exports.getClientIpv6 = exports.getClientIpv4 = exports.formatIpInfoList = exports.getAddressInfo = exports.getAsInfo = exports.formatRoute = exports.getRouteAuto = exports.getRouteV6ByAsn = exports.getRouteV4ByAsn = exports.getOriginAsns = exports.getRoute = exports.doMtr = exports.doTraceroute = exports.doPing = exports.callApi = exports.formatDnsResponse = exports.answerListToString = exports.resolve = exports.resolveFullAuto = exports.resolveFull = exports.resolveZoneInfo = exports.resolveAuto = exports.buildReverseName6 = exports.buildReverseName4 = exports.buildReverseName = void 0;
 const console_1 = __webpack_require__(/*! ../ui/console */ "./src/ui/console.ts");
 const SERVER = 'looking-glass.nc.menhera.org#443';
 const resolver = new doh.DohResolver('https://looking-glass.nc.menhera.org/dns-query');
@@ -41940,21 +41941,89 @@ const resolveAuto = async (name) => {
     throw new Error("Invalid hostname or IP address");
 };
 exports.resolveAuto = resolveAuto;
-const resolveSimple = async (name) => {
+const resolveZoneInfo = async (domainName) => {
+    const validity = (0, console_1.checkValidity)(domainName);
+    if (!validity.hostname) {
+        throw new Error("Invalid hostname");
+    }
+    const soaResult = await (0, exports.resolve)(domainName, "SOA").catch((e) => ({}));
+    const soa = soaResult?.answers?.filter((a) => a.type == 'SOA')[0] ?? soaResult?.authorities?.filter((a) => a.type == 'SOA')[0] ?? null;
+    const soaParts = soa?.data.split(" ") ?? [];
+    const zoneName = soa?.name ?? '';
+    const primaryNameServer = soaParts[0] ?? '';
+    const adminContact = soaParts[1] ?? '';
+    const serial = parseInt(soaParts[2] ?? '0', 10);
+    const refresh = parseInt(soaParts[3] ?? '0', 10);
+    const retry = parseInt(soaParts[4] ?? '0', 10);
+    const expire = parseInt(soaParts[5] ?? '0', 10);
+    const minimum = parseInt(soaParts[6] ?? '0', 10);
+    const nsResult = zoneName == '' ? {} : await (0, exports.resolve)(zoneName, "NS").catch((e) => ({}));
+    const ns = nsResult?.answers?.filter((a) => a.type == 'NS') ?? [];
+    const nameServers = [];
+    for (const nsRecord of ns) {
+        try {
+            const nsName = nsRecord.data;
+            const aResult = await (0, exports.resolve)(nsName, "A").catch((e) => ({}));
+            const aaaaResult = await (0, exports.resolve)(nsName, "AAAA").catch((e) => ({}));
+            const ipv4 = aResult?.answers?.filter((a) => a.type == 'A').map((a) => a.data) ?? [];
+            const ipv6 = aaaaResult?.answers?.filter((a) => a.type == 'AAAA').map((a) => a.data) ?? [];
+            nameServers.push({ name: nsName, ipv4, ipv6 });
+        }
+        catch (e) {
+            console.error(`Error resolving NS record ${nsRecord.data}:`, e);
+        }
+    }
+    return {
+        zoneName,
+        primaryNameServer,
+        adminContact,
+        serial,
+        refresh,
+        retry,
+        expire,
+        minimum,
+        nameServers,
+    };
+};
+exports.resolveZoneInfo = resolveZoneInfo;
+const resolveFull = async (domainName, types) => {
+    const dedupedTypes = [...new Set(types)];
+    const origAnswers = new Set();
+    for (const type of dedupedTypes) {
+        const answers = (await (0, exports.resolve)(domainName, type).catch((e) => ({})))?.answers ?? [];
+        for (const answer of answers) {
+            origAnswers.add(JSON.stringify(answer));
+        }
+    }
+    const zone = await (0, exports.resolveZoneInfo)(domainName);
+    const answers = {};
+    for (const jsonAnswer of origAnswers) {
+        const answer = JSON.parse(jsonAnswer);
+        const { type } = answer;
+        if (!answers[type]) {
+            answers[type] = [];
+        }
+        answers[type].push(answer);
+    }
+    return {
+        name: domainName,
+        zone,
+        answers,
+    };
+};
+exports.resolveFull = resolveFull;
+const resolveFullAuto = async (name) => {
     const validity = (0, console_1.checkValidity)(name);
     if (validity.hostname) {
-        const a = await (0, exports.resolve)(name, "A");
-        const aaaa = await (0, exports.resolve)(name, "AAAA");
-        return { A: a.answers.filter(a => a.type == 'A').map(a => a.data), AAAA: aaaa.answers.filter(a => a.type == 'AAAA').map(a => a.data) };
+        return (0, exports.resolveFull)(name, ["A", "AAAA"]);
     }
     if (validity.ipv4Address || validity.ipv6Address) {
         const reverseName = validity.ipv4Address ? (0, exports.buildReverseName4)(name) : (0, exports.buildReverseName6)(name);
-        const ptr = await (0, exports.resolve)(reverseName, "PTR");
-        return { PTR: ptr.answers.filter(a => a.type == 'PTR').map(a => a.data) };
+        return (0, exports.resolveFull)(reverseName, ["PTR"]);
     }
     throw new Error("Invalid hostname or IP address");
 };
-exports.resolveSimple = resolveSimple;
+exports.resolveFullAuto = resolveFullAuto;
 const resolve = async (name, type) => {
     const questions = [
         {
@@ -41982,7 +42051,6 @@ const resolve = async (name, type) => {
             name: name,
             ttl: ttl,
             data: answer.data.toString(),
-            rcode,
         };
         return ans;
     });
@@ -41990,6 +42058,22 @@ const resolve = async (name, type) => {
         rcode,
         questions,
         answers,
+        authorities: (packet.authorities ?? []).map((answer) => {
+            const { class: cls, type, name, ttl } = answer;
+            if (cls === undefined || type === undefined || name === undefined || ttl === undefined) {
+                throw new Error("Invalid answer format");
+            }
+            if (typeof cls !== "string" || typeof type !== "string" || typeof name !== "string" || typeof ttl !== "number") {
+                throw new Error("Invalid answer format");
+            }
+            return {
+                class: cls,
+                type: type,
+                name: name,
+                ttl: ttl,
+                data: answer.data.toString(),
+            };
+        }),
         id: packet.id ?? 0,
         time: endTime,
         queryTime,
@@ -42255,48 +42339,73 @@ const getAsInfo = async (routerName, asn) => {
     const query = new URLSearchParams();
     query.append("asn", String(asn));
     const response = await (0, exports.callApi)(routerName, "GET", "v1/as_info", query);
-    return response.result;
+    const result = response.result;
+    result.type = 'AS';
+    result.value = String(asn);
+    return result;
 };
 exports.getAsInfo = getAsInfo;
-const getIpInfo = async (routerName, address) => {
-    const ipList = []; // IP addresses or prefixes
+const getAddressInfo = async (routerName, address) => {
     const validity = (0, console_1.checkValidity)(address);
     if (validity.hostname) {
-        const addresses = await (0, exports.resolveSimple)(address);
-        for (const ip of addresses.A) {
-            ipList.push(ip);
+        const ipList = []; // IP addresses or prefixes
+        const addresses = await (0, exports.resolveFullAuto)(address);
+        for (const ip of addresses.answers.A ?? []) {
+            ipList.push(ip.data);
         }
-        for (const ip of addresses.AAAA) {
-            ipList.push(ip);
+        for (const ip of addresses.answers.AAAA ?? []) {
+            ipList.push(ip.data);
         }
+        const ipAddresses = await Promise.all(ipList.map((ip) => getIpAddressInfo(routerName, ip)));
+        const zone = await (0, exports.resolveZoneInfo)(address);
+        const hostnameInfo = {
+            type: 'Hostname',
+            value: address,
+            ipAddresses: ipAddresses,
+            zone: zone,
+        };
+        return hostnameInfo;
     }
-    else if (validity.ipv4Address || validity.ipv6Address) {
-        ipList.push(address);
+    else if (validity.ipv4Address || validity.ipv6Address || validity.ipv4Prefix || validity.ipv6Prefix) {
+        const ipAddressInfo = await getIpAddressInfo(routerName, address);
+        return ipAddressInfo;
     }
-    else if (validity.ipv4Prefix || validity.ipv6Prefix) {
-        ipList.push(address);
+    else if (validity.asn) {
+        const asn = Number(validity.value ?? address);
+        const asInfo = await (0, exports.getAsInfo)(routerName, asn);
+        return asInfo;
     }
-    return Promise.all(ipList.map((ip) => getIpInfoSingle(routerName, ip)));
+    throw new Error("Invalid DNS name, IP address or ASN");
 };
-exports.getIpInfo = getIpInfo;
-const getIpInfoSingle = async (routerName, ip) => {
-    const originAsns = await (0, exports.getOriginAsns)(routerName, ip);
+exports.getAddressInfo = getAddressInfo;
+const getIpAddressInfo = async (routerName, ip) => {
     const validity = (0, console_1.checkValidity)(ip);
+    const originAsns = await (0, exports.getOriginAsns)(routerName, ip);
     let reverseHostname = null;
     let reverseHostnameAddresses = [];
+    let reverseZone = null;
+    let type = 'IPv4';
+    if (validity.ipv6Address || validity.ipv6Prefix) {
+        type = 'IPv6';
+    }
     if (validity.ipv4Address || validity.ipv6Address) {
-        const ptrs = (await (0, exports.resolveSimple)(ip)).PTR;
-        if (ptrs.length > 0) {
-            reverseHostname = ptrs[0];
-            const reverseResult = await (0, exports.resolveSimple)(reverseHostname);
-            for (const ip of reverseResult.A) {
-                if (!reverseHostnameAddresses.includes(ip)) {
-                    reverseHostnameAddresses.push(ip);
+        const resolved = await (0, exports.resolveFullAuto)(ip);
+        reverseZone = resolved.zone;
+        if (resolved.answers.PTR && resolved.answers.PTR.length > 0) {
+            reverseHostname = resolved.answers.PTR[0].data;
+            const reverseResult = await (0, exports.resolveFullAuto)(reverseHostname);
+            if (reverseResult.answers.A) {
+                for (const ip of reverseResult.answers.A) {
+                    if (!reverseHostnameAddresses.includes(ip.data)) {
+                        reverseHostnameAddresses.push(ip.data);
+                    }
                 }
             }
-            for (const ip of reverseResult.AAAA) {
-                if (!reverseHostnameAddresses.includes(ip)) {
-                    reverseHostnameAddresses.push(ip);
+            if (reverseResult.answers.AAAA) {
+                for (const ip of reverseResult.answers.AAAA) {
+                    if (!reverseHostnameAddresses.includes(ip.data)) {
+                        reverseHostnameAddresses.push(ip.data);
+                    }
                 }
             }
         }
@@ -42310,31 +42419,73 @@ const getIpInfoSingle = async (routerName, ip) => {
         }
     }
     return {
-        address: ip,
+        type,
+        value: ip,
         prefixes: prefixes,
-        reverse_hostname: reverseHostname,
-        reverse_hostname_addresses: reverseHostnameAddresses,
+        reverseHostname: reverseHostname,
+        reverseHostnameAddresses: reverseHostnameAddresses,
+        reverseZone: reverseZone,
         as: asInfos,
     };
 };
-const formatIpInfoList = (input, ipInfoList) => {
-    let result = `IP Info for ${input}:\n`;
-    for (const ipInfo of ipInfoList) {
-        result += `\n  IP Address: ${ipInfo.address}\n`;
-        if (ipInfo.reverse_hostname) {
-            result += `  Reverse Hostname: ${ipInfo.reverse_hostname}\n`;
-            result += `  Reverse Hostname Addresses: ${ipInfo.reverse_hostname_addresses.join(", ")}\n`;
-        }
-        result += `  Prefixes: ${ipInfo.prefixes.join(", ")}\n`;
-        if (ipInfo.as.length > 0) {
-            result += `  AS Information:\n`;
-            const asInfoList = new Set(ipInfo.as.map((asInfo) => {
-                return `AS${asInfo.as_number} ${asInfo.as_name} ${asInfo.as_description} (${asInfo.as_country})`;
-            }));
-            for (const asInfo of asInfoList) {
-                result += `    Origin AS: ${asInfo}\n`;
+const formatIpInfoList = (addressInfo) => {
+    let result = `Info for ${addressInfo.value}:\n`;
+    const ipInfoList = [];
+    const hostnameInfoList = [];
+    const asInfoList = [];
+    if (addressInfo.type == 'Hostname') {
+        const hostnameInfo = addressInfo;
+        hostnameInfoList.push(hostnameInfo);
+        for (const ipInfo of hostnameInfo.ipAddresses) {
+            ipInfoList.push(ipInfo);
+            for (const asInfo of ipInfo.as) {
+                asInfoList.push(asInfo);
             }
         }
+    }
+    else if (addressInfo.type == 'IPv4' || addressInfo.type == 'IPv6') {
+        const ipInfo = addressInfo;
+        ipInfoList.push(ipInfo);
+        for (const asInfo of ipInfo.as) {
+            asInfoList.push(asInfo);
+        }
+    }
+    else if (addressInfo.type == 'AS') {
+        const asInfo = addressInfo;
+        asInfoList.push(asInfo);
+    }
+    if (hostnameInfoList.length > 0) {
+        result += `\n  Hostname Info:`;
+    }
+    for (const hostnameInfo of hostnameInfoList) {
+        result += `\n    Hostname: ${hostnameInfo.value}\n`;
+        result += `    Zone: ${hostnameInfo.zone?.zoneName ?? 'N/A'}\n`;
+        result += `    Name Servers:\n`;
+        for (const ns of hostnameInfo.zone?.nameServers ?? []) {
+            result += `      ${ns.name} (${ns.ipv4.concat(ns.ipv6).join(', ')})\n`;
+        }
+    }
+    if (ipInfoList.length > 0) {
+        result += `\n  IP Address Info:`;
+    }
+    for (const ipInfo of ipInfoList) {
+        result += `\n    IP Address: ${ipInfo.value}\n`;
+        if (ipInfo.reverseHostname) {
+            result += `    Reverse Hostname: ${ipInfo.reverseHostname}\n`;
+            result += `    Reverse Hostname Addresses: ${ipInfo.reverseHostnameAddresses.join(", ")}\n`;
+        }
+        result += `    Reverse Zone: ${ipInfo.reverseZone?.zoneName ?? 'N/A'}\n`;
+        result += `    Reverse Zone Name Servers:\n`;
+        for (const ns of ipInfo.reverseZone?.nameServers ?? []) {
+            result += `      ${ns.name} (${ns.ipv4.concat(ns.ipv6).join(', ')})\n`;
+        }
+        result += `    Prefixes: ${ipInfo.prefixes.join(", ")}\n`;
+    }
+    if (asInfoList.length > 0) {
+        result += `\n  AS Info:\n`;
+    }
+    for (const asInfo of [...new Set(asInfoList.map(asInfo => JSON.stringify(asInfo)))].map(asInfo => JSON.parse(asInfo))) {
+        result += `    AS${asInfo.value} ${asInfo.as_name} ${asInfo.as_description} (${asInfo.as_country})\n`;
     }
     return result;
 };
