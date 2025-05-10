@@ -41556,9 +41556,23 @@ const App = () => {
     const loading = (0, react_redux_1.useSelector)((state) => state.console.loading);
     const config = (0, react_redux_1.useSelector)((state) => state.console.config);
     const selectedRouter = (0, react_redux_1.useSelector)((state) => state.console.selectedRouter);
+    const clientIpv4 = (0, react_redux_1.useSelector)((state) => state.console.clientIpv4);
+    const clientIpv6 = (0, react_redux_1.useSelector)((state) => state.console.clientIpv6);
     const dispatch = (0, store_1.useAppDispatch)();
     const mainRef = (0, react_1.useRef)(null);
     const commandRef = (0, react_1.useRef)(null);
+    (0, react_1.useEffect)(() => {
+        (0, api_1.getClientIpv4)().then((ipv4) => {
+            dispatch(console_1.consoleSlice.actions.setClientIpv4({ ipv4 }));
+        }).catch((e) => {
+            dispatch(console_1.consoleSlice.actions.setClientIpv4({ ipv4: '' }));
+        });
+        (0, api_1.getClientIpv6)().then((ipv6) => {
+            dispatch(console_1.consoleSlice.actions.setClientIpv6({ ipv6 }));
+        }).catch((e) => {
+            dispatch(console_1.consoleSlice.actions.setClientIpv6({ ipv6: '' }));
+        });
+    }, []);
     (0, react_1.useEffect)(() => {
         if (config.routers == null || Object.keys(config.routers).length === 0 && !loading) {
             dispatch((0, console_1.fetchConfig)());
@@ -41758,7 +41772,14 @@ const App = () => {
                 react_1.default.createElement("h2", null, "Notice"),
                 react_1.default.createElement("p", null, "This service is provided for informational purposes only. Any automated use of the service is prohibited."),
                 react_1.default.createElement("p", null, "Access to this service is logged and monitored."),
-                react_1.default.createElement("p", null, "By using this service, you agree to the above terms.")),
+                react_1.default.createElement("p", null, "By using this service, you agree to the above terms."),
+                react_1.default.createElement("h2", null, "Your IP address"),
+                react_1.default.createElement("p", null,
+                    "IPv4: ",
+                    clientIpv4),
+                react_1.default.createElement("p", null,
+                    "IPv6: ",
+                    clientIpv6)),
             react_1.default.createElement("div", { id: "console-history" }, consoleHistory.map((ent, i) => {
                 return react_1.default.createElement(react_1.default.Fragment, { key: `entry-${i}` },
                     react_1.default.createElement("div", { className: "console-history-command", key: `command-${i}` }, `${ent.hostname} > ${ent.command}`),
@@ -41864,7 +41885,7 @@ const ipinfo = async (routerName, entries) => {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.formatIpInfoList = exports.getIpInfo = exports.getAsInfo = exports.formatRoute = exports.getRouteAuto = exports.getRouteV6ByAsn = exports.getRouteV4ByAsn = exports.getOriginAsns = exports.getRoute = exports.doMtr = exports.doTraceroute = exports.doPing = exports.callApi = exports.formatDnsResponse = exports.answerListToString = exports.resolve = exports.resolveSimple = exports.resolveAuto = exports.buildReverseName6 = exports.buildReverseName4 = exports.buildReverseName = void 0;
+exports.getClientIpv6 = exports.getClientIpv4 = exports.formatIpInfoList = exports.getIpInfo = exports.getAsInfo = exports.formatRoute = exports.getRouteAuto = exports.getRouteV6ByAsn = exports.getRouteV4ByAsn = exports.getOriginAsns = exports.getRoute = exports.doMtr = exports.doTraceroute = exports.doPing = exports.callApi = exports.formatDnsResponse = exports.answerListToString = exports.resolve = exports.resolveSimple = exports.resolveAuto = exports.buildReverseName6 = exports.buildReverseName4 = exports.buildReverseName = void 0;
 const console_1 = __webpack_require__(/*! ../ui/console */ "./src/ui/console.ts");
 const SERVER = 'looking-glass.nc.menhera.org#443';
 const resolver = new doh.DohResolver('https://looking-glass.nc.menhera.org/dns-query');
@@ -42318,6 +42339,30 @@ const formatIpInfoList = (input, ipInfoList) => {
     return result;
 };
 exports.formatIpInfoList = formatIpInfoList;
+const getClientIpv4 = async () => {
+    const res = await fetch("https://v4.ip.menhera.org/");
+    if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    const data = await res.json();
+    if (data && data.ip) {
+        return data.ip;
+    }
+    throw new Error("Invalid response from API");
+};
+exports.getClientIpv4 = getClientIpv4;
+const getClientIpv6 = async () => {
+    const res = await fetch("https://v6.ip.menhera.org/");
+    if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+    }
+    const data = await res.json();
+    if (data && data.ip) {
+        return data.ip;
+    }
+    throw new Error("Invalid response from API");
+};
+exports.getClientIpv6 = getClientIpv6;
 
 
 /***/ }),
@@ -42837,6 +42882,8 @@ exports.consoleSlice = (0, toolkit_1.createSlice)({
         commandName: '',
         config: {},
         selectedRouter: '',
+        clientIpv4: '',
+        clientIpv6: '',
     },
     reducers: {
         updateText(state, action) {
@@ -43122,6 +43169,14 @@ exports.consoleSlice = (0, toolkit_1.createSlice)({
         setSelectedRouter(state, action) {
             console.log('setSelectedRouter', action.payload.router);
             state.selectedRouter = action.payload.router;
+        },
+        setClientIpv4(state, action) {
+            console.log('setClientIpv4', action.payload.ipv4);
+            state.clientIpv4 = action.payload.ipv4;
+        },
+        setClientIpv6(state, action) {
+            console.log('setClientIpv6', action.payload.ipv6);
+            state.clientIpv6 = action.payload.ipv6;
         },
     },
     extraReducers: (builder) => {
