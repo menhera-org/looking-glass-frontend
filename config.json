@@ -1,0 +1,12 @@
+{
+  "routers": {
+    "er0111": {
+      "name": "er0111",
+      "description": "er0111 (Tsuchiura)"
+    },
+    "er0112": {
+      "name": "er0112",
+      "description": "er0112 (Tsuchiura)"
+    }
+  }
+}

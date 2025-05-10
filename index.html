@@ -1,190 +1,26 @@
-<!doctype html>
-<html lang='ja'>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset='utf-8'/>
-<title>AS63806 BGP Looking Glass - Menhera.org Network Operations</title>
-<meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta property="og:title" content="BGP Looking Glass - Menhera.org Network Operations" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="You can test Ping, Traceroute and BGP here." />
-<meta property="og:description" content="You can test Ping, Traceroute and BGP here." />
-<link rel="canonical" href="https://looking-glass.nc.menhera.org/" />
-<meta property="og:url" content="https://looking-glass.nc.menhera.org/" />
-<meta property="og:site_name" content="Menhera.org Network Operations" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="BGP Looking Glass - Menhera.org Network Operations" />
-<style>
-:root {
-	background-color: #fff;
-	color: #333;
-}
-
-:root, body {
-	font-family: system-ui, sans-serif;
-}
-
-body {
-	margin: auto;
-	padding: 1em;
-	max-width: 50em;
-}
-
-pre {
-	white-space: pre-wrap;
-	margin: 0;
-}
-
-input[type="text"], select, button {
-	font: inherit;
-}
-
-hgroup > h1 ~ p {
-	font-weight: bold;
-	font-size: 125%;
-}
-
-#console-output {
-	background-color: #333;
-	color: #eee;
-	padding-block: .5rem;
-	padding-inline: .5rem;
-}
-
-#error {
-	background-color: #a93627;
-}
-
-progress {
-	display: block;
-	margin: auto;
-}
-
-#router-status {
-	display: grid;
-	column-gap: 1rem;
-	row-gap: 1rem;
-	grid-template-columns: max-content 1fr;
-	border-block: solid 1px #ccc;
-	padding-inline: 1rem;
-	padding-block: .5rem;
-}
-
-#anycast-origin {
-	font-weight: bold;
-}
-
-#tabs {
-	display: flex;
-	flex-direction: row;
-	column-gap: .5rem;
-	overflow-inline: auto;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
-}
-
-#tabs > div {
-	color: #aaa;
-	padding-block: .5rem;
-	padding-inline: 1rem;
-	border-block-start: solid 2px transparent;
-}
-
-#tabs > div.selected {
-	color: #333;
-	border-block-start-color: #5eaf30;
-	box-shadow: 0 0 .5rem 1px #ccc;
-	background-color: #fff;
-}
-
-#panes {
-	border-block-start: solid 1px #aaa;
-	margin: 0;
-	padding: 0;
-	background-color: #fff;
-}
-
-#panes > div {
-	padding-block: .5rem;
-	padding-inline: .5rem;
-}
-
-#backbone-stats table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-#backbone-stats table :is(td, th) {
-	padding-inline: 1em;
-	padding-block: .25em;
-}
-
-#backbone-stats iframe {
-	border: solid 1px #aaa;
-	box-sizing: border-box;
-	display: block;
-	inline-size: 100%;
-	block-size: 20rem;
-}
-
-</style>
-<script defer src='/main.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AS63806 Looking Glass - Menhera.org Network Operations</title>
+    <link rel="icon" href="/favicon.ico">
+    <meta property="og:title" content="AS63806 Looking Glass" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="description" content="You can view the Internet as seen from AS63806." />
+    <meta property="og:description" content="You can view the Internet as seen from AS63806." />
+    <link rel="canonical" href="https://looking-glass.nc.menhera.org/" />
+    <meta property="og:url" content="https://looking-glass.nc.menhera.org/" />
+    <meta property="og:site_name" content="Menhera.org Network Operations" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://looking-glass.nc.menhera.org/image.png" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&family=Noto+Sans+JP:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900">
 </head>
 <body>
-<hgroup>
-<h1>AS63806 BGP Looking Glass</h1>
-<p>NOC at Menhera.org</p>
-</hgroup>
-<p>This service is provided for informational purposes only. Any automated use of the service is prohibited.</p>
-<p>Access to this service is logged and monitored.</p>
-<h2>Network information</h2>
-<p>This site uses anycast technology. You can access it as long as at least one of its nodes is alive.</p>
-<div id='router-status'>
-	<div>Page served from:</div>
-	<div id='anycast-origin'></div>
-	<div class='reachability-status' data-router-id='er0111'>?</div>
-	<div>er0111: m-ibr1 (Tsuchiura) AZ1</div>
-	<div class='reachability-status' data-router-id='er0112'>?</div>
-	<div>er0112: m-ibr1 (Tsuchiura) AZ2</div>
-</div>
-<h2>Tools</h2>
-<p>Select a router to inspect: <select id='location'>
-<option value='er0111'>er0111: m-ibr1 (Tsuchiura) AZ1</option>
-<option value='er0112'>er0112: m-ibr1 (Tsuchiura) AZ2</option>
-</select></p>
-<div id='tabs'>
-<div data-pane-name='ping'>Ping</div>
-<div data-pane-name='traceroute'>Traceroute</div>
-<div data-pane-name='mtr'>MTR (Ping+Traceroute)</div>
-<div data-pane-name='bgp'>BGP</div>
-</div>
-<div id='panes'>
-<div data-pane-name='ping'>
-<p><label>Host: <input id='ping-host' type='text'></label> <button id='ping-button'>Start</button></p>
-</div>
-<div data-pane-name='traceroute'>
-<p><label>Host: <input id='traceroute-host' type='text'></label> <button id='traceroute-button'>Start</button></p>
-</div>
-<div data-pane-name='mtr'>
-<p><label>Host: <input id='mtr-host' type='text'></label> <button id='mtr-button'>Start</button></p>
-</div>
-<div data-pane-name='bgp'>
-<p><label>IPv4/IPv6 address or prefix: <input id='bgp-address' type='text'></label> <button id='bgp-button'>Start</button></p>
-</div>
-</div>
-<div id='console-output'>
-<pre id='error'></pre>
-<pre id='results'>Output comes here...</pre>
-</div>
-<h2>Backbone statistics</h2>
-<div id='backbone-stats'></div>
-<hr>
-<footer>
-<address>
-	Service run by <a href='https://www.nc.menhera.org/'>Menhera.org Network Operations</a>.
-</address>
-</footer>
+  <div id="root"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/dohjs@latest/dist/doh.min.js"></script>
+  <script src="bundle.js"></script>
 </body>
 </html>
-
