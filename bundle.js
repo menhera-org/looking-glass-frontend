@@ -42079,14 +42079,20 @@ const getOriginAsns = async (routerName, address) => {
         if (lastSegment.type == 'as-set') {
             for (const asn of lastSegment.list) {
                 if (originAsns.indexOf(asn) == -1) {
-                    originAsns.push(Number(asn));
+                    originAsns.push({
+                        network: response.result.prefix || '',
+                        asn: Number(asn),
+                    });
                 }
             }
         }
         else {
             const lastAsn = lastSegment.list[lastSegment.list.length - 1];
             if (originAsns.indexOf(lastAsn) == -1) {
-                originAsns.push(Number(lastAsn));
+                originAsns.push({
+                    network: response.result.prefix || '',
+                    asn: Number(lastAsn),
+                });
             }
         }
     }
@@ -42273,14 +42279,16 @@ const getIpInfoSingle = async (routerName, ip) => {
         }
     }
     const asInfos = [];
+    const prefixes = originAsns.map((asn) => asn.network);
     for (const asn of originAsns) {
-        const asInfo = await (0, exports.getAsInfo)(routerName, asn);
+        const asInfo = await (0, exports.getAsInfo)(routerName, asn.asn);
         if (asInfo) {
             asInfos.push(asInfo);
         }
     }
     return {
         address: ip,
+        prefixes: prefixes,
         reverse_hostname: reverseHostname,
         reverse_hostname_addresses: reverseHostnameAddresses,
         as: asInfos,
@@ -42294,6 +42302,7 @@ const formatIpInfoList = (input, ipInfoList) => {
             result += `  Reverse Hostname: ${ipInfo.reverse_hostname}\n`;
             result += `  Reverse Hostname Addresses: ${ipInfo.reverse_hostname_addresses.join(", ")}\n`;
         }
+        result += `  Prefixes: ${ipInfo.prefixes.join(", ")}\n`;
         if (ipInfo.as.length > 0) {
             result += `  AS Information:\n`;
             for (const asInfo of ipInfo.as) {
